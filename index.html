@@ -3,1188 +3,1250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smoke & Dre Grille</title>
+  <title>Police Station Pizza House</title>
+  <meta
+    name="description"
+    content="Police Station Pizza House — Italian style pizza done the right way."
+  />
   <style>
-    :root{
-      --bg:#070707;
-      --panel:#101010;
-      --text:#f7f3ed;
-      --muted:#b7aea2;
-      --accent:#ff8a1d;
-      --accent-2:#ffb15c;
-      --success:#7ddc8a;
-      --danger:#ff8f8f;
-      --shadow:0 20px 60px rgba(0,0,0,.45);
+    :root {
+      --bg: #0f0b09;
+      --bg-soft: #18110d;
+      --brick: #2a1913;
+      --gold: #f3c26d;
+      --gold-soft: rgba(243, 194, 109, 0.16);
+      --red: #9c2318;
+      --green: #234332;
+      --cream: #f7ecd7;
+      --muted: #cfbda7;
+      --white: #fffaf2;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+      --max: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    * {
+      box-sizing: border-box;
+    }
 
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
       background:
-        radial-gradient(circle at top left, rgba(255,138,29,.09), transparent 28%),
-        radial-gradient(circle at top right, rgba(255,177,92,.06), transparent 22%),
-        linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-      color:var(--text);
-      line-height:1.5;
+        radial-gradient(circle at top, rgba(243, 194, 109, 0.08), transparent 30%),
+        linear-gradient(180deg, #120d0a 0%, #0d0907 100%);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    body.spotlight-active{
-      overflow:hidden;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    a{color:inherit;text-decoration:none}
-    img{display:block}
-
-    .container{
-      width:min(1180px, calc(100% - 32px));
-      margin:0 auto;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(14px);
-      background:rgba(7,7,7,.78);
-      border-bottom:1px solid rgba(255,255,255,.05);
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
 
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      padding:14px 0;
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: 0.3s ease;
+      background: linear-gradient(to bottom, rgba(8, 6, 5, 0.82), rgba(8, 6, 5, 0.28));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(243, 194, 109, 0.08);
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      min-width:0;
+    .nav.scrolled {
+      background: rgba(12, 8, 6, 0.92);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .site-logo{
-      height:56px;
-      width:auto;
-      max-width:none;
-      object-fit:contain;
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 76px;
     }
 
-    .nav-links{
-      display:flex;
-      gap:20px;
-      color:var(--muted);
-      font-size:15px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .nav-links a:hover{color:var(--text)}
-
-    .nav-cta{
-      display:flex;
-      gap:12px;
-      align-items:center;
-    }
-
-    .button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:48px;
-      padding:0 18px;
-      border-radius:14px;
-      border:1px solid transparent;
-      font-weight:700;
-      transition:.22s ease;
-      cursor:pointer;
-      font:inherit;
-    }
-
-    .button:hover{transform:translateY(-1px)}
-
-    .button:disabled{
-      opacity:.7;
-      cursor:not-allowed;
-      transform:none;
-    }
-
-    .button-primary{
-      color:#180a00;
-      background:linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow:0 12px 26px rgba(255,138,29,.22);
-    }
-
-    .button-secondary{
-      border-color:#303030;
-      background:#111;
-      color:var(--text);
-    }
-
-    .button-ghost{
-      color:var(--muted);
-      border-color:#2a2a2a;
-      background:transparent;
-    }
-
-    .hero{
-      position:relative;
-      min-height:calc(100vh - 84px);
-      display:flex;
-      align-items:center;
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.40) 38%, rgba(0,0,0,.78) 100%),
-        linear-gradient(90deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.30) 55%, rgba(0,0,0,.56) 100%),
-        url('hero.png') center center / cover no-repeat;
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(135deg, #b12819, #6b140f);
+      border: 1px solid rgba(243, 194, 109, 0.35);
+      box-shadow:
+        0 0 0 1px rgba(243, 194, 109, 0.08) inset,
+        0 0 24px rgba(243, 194, 109, 0.16);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 0.95rem;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
+    .brand-text {
+      line-height: 1;
+    }
+
+    .brand-text small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #201208;
+      background: linear-gradient(180deg, #f8d38b 0%, #e8b55b 100%);
+      box-shadow:
+        0 10px 30px rgba(232, 181, 91, 0.18),
+        0 0 30px rgba(232, 181, 91, 0.08);
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: rgba(243, 194, 109, 0.32);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      background: #0f0a08;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(circle at 20% 18%, rgba(255,138,29,.16), transparent 26%),
-        linear-gradient(180deg, transparent 0%, rgba(0,0,0,.15) 100%);
-      pointer-events:none;
+        linear-gradient(180deg, rgba(4, 3, 2, 0.46), rgba(4, 3, 2, 0.72)),
+        radial-gradient(circle at center, rgba(243, 194, 109, 0.22), transparent 28%),
+        url("./6FBB9594-D853-4E71-95F2-5D120491D7C7.jpeg") center center / cover no-repeat;
+      transform: scale(1.06);
+      will-change: transform;
     }
 
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:100%;
-      display:flex;
-      align-items:center;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(255, 179, 64, 0.18), transparent 20%),
+        linear-gradient(to top, rgba(8, 5, 4, 0.84), rgba(8, 5, 4, 0.12) 40%, rgba(8, 5, 4, 0.45));
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .hero-copy{
-      max-width:640px;
-      margin-left:clamp(32px,5vw,80px);
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
-      color:var(--accent-2);
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:14px;
-      margin-bottom:18px;
+    #embers {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.9;
     }
 
-    .eyebrow-link,
-    .eyebrow-button{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
-      color:var(--accent-2);
-      border-radius:999px;
-      padding:8px 12px;
-      font-size:14px;
-      margin-bottom:18px;
-      cursor:pointer;
-      transition:.22s ease;
-      font:inherit;
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      width: min(calc(100% - 32px), 1100px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      padding-top: 110px;
+      padding-bottom: 60px;
     }
 
-    .eyebrow-link:hover,
-    .eyebrow-button:hover{
-      transform:translateY(-1px);
-      border-color:rgba(255,177,92,.28);
-      background:rgba(0,0,0,.5);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(243, 194, 109, 0.16);
+      background: rgba(0, 0, 0, 0.24);
+      color: var(--gold);
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .eyebrow-button{
-      appearance:none;
-      outline:none;
+    .hero-copy h1 {
+      font-size: clamp(2.7rem, 7vw, 6rem);
+      line-height: 0.94;
+      margin: 18px 0 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-wrap: balance;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
     }
 
-    h1{
-      margin:0 0 16px;
-      font-size:clamp(42px, 7vw, 88px);
-      line-height:.95;
-      letter-spacing:-2px;
-      max-width:780px;
+    .hero-copy h1 .gold {
+      color: var(--gold);
+      text-shadow:
+        0 0 16px rgba(243, 194, 109, 0.2),
+        0 0 38px rgba(243, 194, 109, 0.12);
     }
 
-    .hero p{
-      margin:0 0 28px;
-      color:#efe7db;
-      max-width:540px;
-      font-size:20px;
-      line-height:1.6;
+    .hero-copy p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
     }
 
-    .section{
-      padding:42px 0;
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .section-head{
-      margin-bottom:20px;
+    .meta-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: var(--cream);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
     }
 
-    .section-title{
-      font-size:clamp(28px, 4vw, 46px);
-      line-height:1.02;
-      margin:0 0 10px;
-      letter-spacing:-1px;
+    .hero-card-wrap {
+      display: flex;
+      justify-content: center;
+      perspective: 1200px;
     }
 
-    .section-copy{
-      margin:0;
-      color:var(--muted);
-      max-width:700px;
+    .hero-card {
+      position: relative;
+      width: min(100%, 420px);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(243, 194, 109, 0.18);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
+        rgba(18, 11, 8, 0.62);
+      box-shadow:
+        var(--shadow),
+        0 0 0 1px rgba(243, 194, 109, 0.05) inset,
+        0 0 60px rgba(243, 194, 109, 0.08);
+      backdrop-filter: blur(16px);
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease;
     }
 
-    .menu-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background:
+        radial-gradient(circle at top left, rgba(243, 194, 109, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(156, 35, 24, 0.16), transparent 28%);
+      pointer-events: none;
     }
 
-    .full-menu-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .card{
-      background:linear-gradient(180deg, #121212 0%, #0d0d0d 100%);
-      border:1px solid #242424;
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
+    .card-head strong {
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-transform: uppercase;
     }
 
-    .food-shot{
-      height:240px;
-      position:relative;
-      overflow:hidden;
-      border-bottom:1px solid rgba(255,255,255,.05);
-      background:#111;
+    .status {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      background: rgba(35, 67, 50, 0.5);
+      color: #bce1c7;
+      border: 1px solid rgba(188, 225, 199, 0.12);
     }
 
-    .food-shot .dish{
-      position:absolute;
-      inset:0;
-      border-radius:0;
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+    .card-body {
+      padding: 22px;
     }
 
-    .dish span{
-      display:none;
+    .featured {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.42)),
+        url("./6FBB9594-D853-4E71-95F2-5D120491D7C7.jpeg") center center / cover no-repeat;
+      box-shadow: inset 0 -80px 120px rgba(0, 0, 0, 0.45);
     }
 
-    .dish::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.18) 100%);
+    .featured-label {
+      position: absolute;
+      inset: auto 16px 16px 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
     }
 
-    .food-copy{padding:20px}
-
-    .food-title{
-      margin:0 0 8px;
-      font-size:24px;
+    .featured-label h3 {
+      margin: 0;
+      font-size: 1.4rem;
     }
 
-    .food-desc{
-      margin:0;
-      color:var(--muted);
-      min-height:52px;
+    .featured-label p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .tag{
-      display:inline-flex;
-      margin-top:14px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:#0f0f0f;
-      border:1px solid #262626;
-      color:#e7d9c8;
-      font-size:13px;
+    .price {
+      min-width: 88px;
+      text-align: center;
+      padding: 12px 10px;
+      border-radius: 18px;
+      background: rgba(10, 8, 7, 0.72);
+      border: 1px solid rgba(243, 194, 109, 0.16);
+      color: var(--gold);
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.24);
     }
 
-    .menu-action{
-      margin-top:24px;
-      display:flex;
-      justify-content:center;
+    .card-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 18px 22px 24px;
     }
 
-    .menu-category{
-      margin-top:18px;
-      margin-bottom:14px;
-      font-size:28px;
-      letter-spacing:-.5px;
+    /* SECTION */
+    section {
+      position: relative;
+      padding: 92px 0;
     }
 
-    .menu-item-card{
-      padding:22px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-height:170px;
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 26px;
     }
 
-    .menu-item-card h3{
-      margin:0;
-      font-size:24px;
-      line-height:1.1;
+    .section-title span {
+      display: inline-block;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
     }
 
-    .menu-item-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.5;
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1;
+      text-transform: uppercase;
     }
 
-    .menu-price{
-      margin-top:auto;
-      font-size:28px;
-      font-weight:800;
-      color:var(--accent-2);
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.05rem;
     }
 
-    .location-wrap{
-      display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:22px;
-      align-items:stretch;
+    /* BEST SELLERS */
+    .best-sellers {
+      background:
+        radial-gradient(circle at top, rgba(243, 194, 109, 0.06), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
     }
 
-    .map-box{
-      position:relative;
-      min-height:430px;
-      border-radius:28px;
-      overflow:hidden;
-      background:linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
-      border:1px solid #242424;
-      box-shadow:var(--shadow);
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
     }
 
-    .map-box iframe{
-      width:100%;
-      height:100%;
-      min-height:430px;
-      border:0;
-      filter:grayscale(.15) contrast(1.05) brightness(.82);
+    .food-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        #17100d;
+      border: 1px solid rgba(243, 194, 109, 0.08);
+      box-shadow: var(--shadow);
+      transition: transform 0.22s ease, border-color 0.22s ease;
     }
 
-    .loc-panel{
-      padding:28px;
-      border-radius:28px;
-      border:1px solid #242424;
-      background:linear-gradient(180deg, #121212, #0e0e0e);
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:22px;
+    .food-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(243, 194, 109, 0.22);
     }
 
-    .loc-list{
-      display:grid;
-      gap:14px;
-      margin-top:8px;
+    .food-img {
+      aspect-ratio: 4 / 3;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.42)),
+        url("./6FBB9594-D853-4E71-95F2-5D120491D7C7.jpeg") center center / cover no-repeat;
+      filter: saturate(1.05) brightness(0.92);
     }
 
-    .loc-item{
-      display:grid;
-      grid-template-columns:36px 1fr;
-      gap:14px;
-      align-items:start;
-      padding:14px;
-      border-radius:18px;
-      background:#0e0e0e;
-      border:1px solid #242424;
+    .food-info {
+      padding: 20px;
     }
 
-    .loc-icon{
-      width:36px;
-      height:36px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:#161616;
-      border:1px solid #2a2a2a;
+    .food-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
-    .reviews-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
+    .food-top h3 {
+      margin: 0;
+      font-size: 1.25rem;
     }
 
-    .review{padding:22px}
-
-    .stars{
-      color:#ffcc69;
-      letter-spacing:2px;
-      font-size:18px;
-      margin-bottom:14px;
+    .food-top .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(243, 194, 109, 0.08);
+      color: var(--gold);
+      font-size: 0.82rem;
+      white-space: nowrap;
     }
 
-    .review p{
-      margin:0 0 16px;
-      color:#ebe3d7;
-      font-size:17px;
+    .food-info p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0 0 16px;
     }
 
-    .review small{color:var(--muted)}
-
-    .cta-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
+    .food-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
     }
 
-    .signup-card, .referral-card{
-      padding:28px;
-      position:relative;
-      transition:.25s ease;
+    .food-price {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.12rem;
     }
 
-    .card-spotlight-close{
-      position:absolute;
-      top:14px;
-      right:14px;
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      border:1px solid #2d2d2d;
-      background:#101010;
-      color:var(--text);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-      line-height:1;
-      cursor:pointer;
-      z-index:122;
+    /* MENU */
+    .menu-shell {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 22px;
+      margin-top: 28px;
     }
 
-    .card.spotlight{
-      position:fixed;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      width:min(720px, calc(100% - 24px));
-      max-height:calc(100vh - 32px);
-      overflow:auto;
-      z-index:121;
-      box-shadow:0 28px 80px rgba(0,0,0,.65);
-      border-color:#3a2a1b;
+    .menu-tabs,
+    .menu-panel {
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015)),
+        #15100d;
+      border: 1px solid rgba(243, 194, 109, 0.08);
+      box-shadow: var(--shadow);
     }
 
-    .card.spotlight .card-spotlight-close{
-      display:flex;
+    .menu-tabs {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
     }
 
-    .spotlight-overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.68);
-      backdrop-filter:blur(4px);
-      z-index:120;
-      display:none;
+    .menu-tab {
+      width: 100%;
+      text-align: left;
+      border: 1px solid rgba(243, 194, 109, 0.08);
+      background: rgba(255,255,255,0.02);
+      color: var(--cream);
+      border-radius: 18px;
+      padding: 16px 16px;
+      font: inherit;
+      cursor: pointer;
+      transition: 0.2s ease;
     }
 
-    .spotlight-overlay.active{
-      display:block;
+    .menu-tab:hover,
+    .menu-tab.active {
+      background:
+        linear-gradient(180deg, rgba(243, 194, 109, 0.12), rgba(243, 194, 109, 0.04)),
+        rgba(255,255,255,0.02);
+      color: var(--gold);
+      border-color: rgba(243, 194, 109, 0.24);
     }
 
-    .signup-form{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
+    .menu-panel {
+      padding: 22px;
     }
 
-    input[type="text"],
-    input[type="email"]{
-      flex:1 1 220px;
-      min-height:52px;
-      border-radius:14px;
-      border:1px solid #2d2d2d;
-      background:#0d0d0d;
-      color:var(--text);
-      padding:0 16px;
-      outline:none;
+    .menu-group {
+      display: none;
     }
 
-    input[type="text"]:focus,
-    input[type="email"]:focus{
-      border-color:#4e361f;
-      box-shadow:0 0 0 4px rgba(255,138,29,.08);
+    .menu-group.active {
+      display: block;
+      animation: fadeUp 0.35s ease;
     }
 
-    input::placeholder{
-      color:#8f867b;
+    .menu-grid {
+      display: grid;
+      gap: 14px;
     }
 
-    .referral-badge{
-      display:inline-flex;
-      margin-top:12px;
-      font-size:34px;
-      font-weight:900;
-      color:var(--accent-2);
-      letter-spacing:-1px;
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
-    .muted{color:var(--muted)}
-
-    .site-footer{
-      margin-top:24px;
-      padding:34px 0 18px;
-      border-top:1px solid rgba(255,255,255,.06);
-      background:linear-gradient(180deg, #0a0a0a 0%, #060606 100%);
+    .menu-item h4 {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
     }
 
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.3fr 1fr 1fr 1fr;
-      gap:24px;
-      align-items:start;
+    .menu-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
     }
 
-    .footer-logo{
-      height:52px;
-      width:auto;
-      margin-bottom:14px;
+    .menu-item strong {
+      color: var(--gold);
+      white-space: nowrap;
+      align-self: start;
+      font-size: 1.04rem;
     }
 
-    .footer-copy{
-      margin:0;
-      color:var(--muted);
-      max-width:320px;
+    /* REVIEWS */
+    .reviews {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.01), transparent),
+        radial-gradient(circle at center, rgba(243, 194, 109, 0.05), transparent 35%);
     }
 
-    .footer-block h3{
-      margin:0 0 12px;
-      font-size:16px;
-      color:var(--text);
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
     }
 
-    .footer-block p{
-      margin:0 0 10px;
-      color:var(--muted);
+    .review {
+      padding: 26px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        #15100d;
+      border: 1px solid rgba(243, 194, 109, 0.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
-    .footer-block a{
-      color:var(--muted);
+    .review::before {
+      content: "★ ★ ★ ★ ★";
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      color: rgba(243, 194, 109, 0.35);
+      letter-spacing: 0.1em;
+      font-size: 0.92rem;
     }
 
-    .footer-block a:hover{
-      color:var(--text);
+    .review p {
+      margin: 0 0 18px;
+      color: var(--cream);
+      line-height: 1.85;
+      font-size: 1.04rem;
     }
 
-    .footer-bottom{
-      margin-top:24px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.06);
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:14px;
+    .review strong {
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.84rem;
     }
 
-    @media (max-width: 980px){
-      .location-wrap, .cta-grid{
-        grid-template-columns:1fr;
+    /* CTA / FOOTER */
+    .cta {
+      padding-top: 110px;
+      padding-bottom: 110px;
+    }
+
+    .cta-box {
+      position: relative;
+      padding: 42px;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        #130d0a;
+      border: 1px solid rgba(243, 194, 109, 0.12);
+      box-shadow:
+        var(--shadow),
+        0 0 80px rgba(243, 194, 109, 0.08);
+      text-align: center;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, rgba(243, 194, 109, 0.16), transparent 28%),
+        url("./6FBB9594-D853-4E71-95F2-5D120491D7C7.jpeg") center center / cover no-repeat;
+      opacity: 0.12;
+      filter: blur(2px);
+      transform: scale(1.05);
+    }
+
+    .cta-box > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .cta-box p {
+      max-width: 700px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.06rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: #b59f86;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* ANIMATIONS */
+    @keyframes glowPulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 1px rgba(243, 194, 109, 0.05) inset,
+          0 0 60px rgba(243, 194, 109, 0.08);
+      }
+      50% {
+        box-shadow:
+          0 0 0 1px rgba(243, 194, 109, 0.08) inset,
+          0 0 80px rgba(243, 194, 109, 0.16);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-card {
+      animation: glowPulse 4.6s ease-in-out infinite;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px) {
+      .hero-content,
+      .menu-shell,
+      .cards,
+      .review-grid {
+        grid-template-columns: 1fr;
       }
 
-      .menu-grid, .reviews-grid, .full-menu-grid{
-        grid-template-columns:1fr;
+      .hero-copy {
+        order: 1;
       }
 
-      .nav-links{display:none}
-
-      h1{
-        font-size:clamp(40px, 10vw, 64px);
+      .hero-card-wrap {
+        order: 0;
       }
 
-      .hero{
-        min-height:82vh;
-      }
-
-      .footer-grid{
-        grid-template-columns:1fr 1fr;
+      .menu-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 680px){
-      .hero{
-        min-height:76vh;
-        background-position:center;
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
       }
 
-      .hero-content{
-        padding:92px 0 50px;
+      .hero {
+        min-height: auto;
       }
 
-      .hero p{
-        font-size:17px;
+      .hero-content {
+        padding-top: 110px;
+        padding-bottom: 44px;
       }
 
-      .nav-cta .button-ghost{display:none}
-
-      .section{
-        padding:30px 0;
+      .hero-copy h1 {
+        font-size: clamp(2.3rem, 13vw, 4rem);
       }
 
-      .site-logo{
-        height:46px;
+      .hero-copy p {
+        font-size: 1rem;
       }
 
-      .footer-grid{
-        grid-template-columns:1fr;
+      .menu-tabs {
+        grid-template-columns: 1fr;
       }
 
-      .footer-bottom{
-        flex-direction:column;
+      .card-footer,
+      .cta-actions,
+      .hero-actions {
+        grid-template-columns: 1fr;
       }
 
-      .card.spotlight{
-        width:calc(100% - 16px);
-        max-height:calc(100vh - 16px);
+      .card-footer {
+        display: grid;
+      }
+
+      .cta-box {
+        padding: 30px 22px;
       }
     }
   </style>
 </head>
 <body>
-  <div id="spotlightOverlay" class="spotlight-overlay" aria-hidden="true"></div>
-
-  <nav class="nav">
+  <header class="nav" id="nav">
     <div class="container nav-inner">
-      <a class="brand brand-logo" href="#top">
-        <img src="logo.png" alt="Smoke & Dre Grille logo" class="site-logo">
+      <a class="brand" href="#top" aria-label="Police Station Pizza House home">
+        <div class="brand-badge">PS</div>
+        <div class="brand-text">
+          Police Station Pizza House
+          <small>Italian Style Pizza</small>
+        </div>
       </a>
 
-      <div class="nav-links">
+      <nav class="nav-links">
+        <a href="#specials">Specials</a>
         <a href="#menu">Menu</a>
-        <a href="#full-menu">Full Menu</a>
-        <a href="#location">Location</a>
         <a href="#reviews">Reviews</a>
-        <a href="#signup">Smoke Crew</a>
-      </div>
+        <a href="#location">Location</a>
+      </nav>
 
-      <div class="nav-cta">
-        <a class="button button-ghost" href="#reviews">See Reviews</a>
-        <a class="button button-primary" href="#location">Find the Truck</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero" id="top">
-    <div class="container hero-content">
-      <div class="hero-copy">
-        <a class="eyebrow-link" href="#menu">🔥 Fresh off the grill</a>
-        <h1>Street food that hits the spot.</h1>
-        <p>
-          Pull up to Smoke & Dre Grille for hot food, bold flavor, and the kind of food people keep coming back for.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="menu.html">View Menu</a>
-          <a class="button button-secondary" href="#location">Find the Truck</a>
-        </div>
-      </div>
+      <a class="btn btn-primary" href="#location">Order Now</a>
     </div>
   </header>
 
-  <section class="section" id="menu">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Featured food that taste delicious.</h2>
-          <p class="section-copy">
-            Show off the hitters first. Big photos, short descriptions, and one clear button to the full menu.
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <canvas id="embers"></canvas>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">Italian Style Pizza • Warm • Crisp • Classic</div>
+
+          <h1>
+            Best pizza around.
+            <span class="gold">Done the right way.</span>
+          </h1>
+
+          <p>
+            A glowing storefront feel, old-school flavor, generous toppings, and the kind of
+            pizza you keep eating long after you said you were full.
           </p>
-        </div>
-      </div>
 
-      <div class="menu-grid">
-        <article class="card">
-          <div class="food-shot">
-            <div class="dish" style="background-image:url('chicken-on-a-stick.png');"></div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">View Menu</a>
+            <a class="btn btn-secondary" href="#reviews">See Reviews</a>
           </div>
-          <div class="food-copy">
-            <h3 class="food-title">Chicken on a Stick</h3>
-            <p class="food-desc">Juicy grilled chicken glazed with teriyaki and yum yum sauce.</p>
-            <div class="tag">Most wanted item</div>
+
+          <div class="hero-meta">
+            <div class="meta-chip">Perfect crunch</div>
+            <div class="meta-chip">Generous toppings</div>
+            <div class="meta-chip">Order in or carry out</div>
           </div>
-        </article>
-
-        <article class="card">
-          <div class="food-shot">
-            <div class="dish" style="background-image:url('chili-cheese-dogs.png');"></div>
-          </div>
-          <div class="food-copy">
-            <h3 class="food-title">Chili Cheese Dogs</h3>
-            <p class="food-desc">Messy in the best way — loaded, cheesy, and made for real comfort cravings.</p>
-            <div class="tag">Street classic</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="food-shot">
-            <div class="dish" style="background-image:url('steak-specialty-pizza.png');"></div>
-          </div>
-          <div class="food-copy">
-            <h3 class="food-title">Steak Specialty Pizza</h3>
-            <p class="food-desc">Savory steak, melty cheese, and food truck attitude in every slice.</p>
-            <div class="tag">Fan favorite</div>
-          </div>
-        </article>
-      </div>
-
-<div class="menu-action">
-  <a class="button button-primary" href="menu.html">View Full Menu</a>
-</div>
-    </div>
-  </section>
-
- <div class="menu-grid">
-
- 
-
-</div>
-  <section class="section" id="location">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Where to find the truck.</h2>
-          <p class="section-copy">
-            Check today’s stop, hours, and what’s coming next.
-          </p>
-        </div>
-      </div>
-
-      <div class="location-wrap">
-        <div class="map-box">
-          <iframe
-            id="truckMap"
-            title="Smoke & Dre Grille location map"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
         </div>
 
-        <div class="loc-panel">
-          <div>
-            <a class="eyebrow-link" href="#location" style="margin-bottom:12px">📍 Today’s Location</a>
-            <h3 style="font-size:34px;line-height:1.02;margin:0 0 12px;letter-spacing:-1px">Pull up hungry.</h3>
-            <p class="muted" style="margin:0 0 20px">
-              Check the current stop before you head over.
-            </p>
+        <div class="hero-card-wrap">
+          <div class="hero-card" id="heroCard">
+            <div class="card-head">
+              <strong>Featured Pie</strong>
+              <div class="status">Fresh out the oven</div>
+            </div>
 
-            <div class="loc-list">
-              <div class="loc-item">
-                <div class="loc-icon">📍</div>
-                <div>
-                  <strong>Today’s stop</strong><br>
-                  <span id="todayStop" class="muted">Loading location...</span>
+            <div class="card-body">
+              <div class="featured">
+                <div class="featured-label">
+                  <div>
+                    <h3>Old School Square</h3>
+                    <p>Bold sauce, perfect edges, classic comfort.</p>
+                  </div>
+                  <div class="price">$18.99</div>
                 </div>
               </div>
+            </div>
 
-              <div class="loc-item">
-                <div class="loc-icon">🕒</div>
-                <div>
-                  <strong>Hours</strong><br>
-                  <span id="todayHours" class="muted">Loading hours...</span>
+            <div class="card-footer">
+              <a class="btn btn-primary" href="#location">Order Now</a>
+              <a class="btn btn-secondary" href="#menu">Explore Menu</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="best-sellers" id="specials">
+      <div class="container">
+        <div class="section-title">
+          <span>Best Sellers</span>
+          <h2>Built for cravings</h2>
+          <p>
+            This section is meant to convert fast: clear favorites, strong visuals, simple copy,
+            and a direct path to ordering.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="food-card">
+            <div class="food-img"></div>
+            <div class="food-info">
+              <div class="food-top">
+                <h3>Square Cut Classic</h3>
+                <div class="tag">Most Loved</div>
+              </div>
+              <p>
+                Crisp edges, rich cheese, and that old-school pizza taste people keep coming back for.
+              </p>
+              <div class="food-bottom">
+                <div class="food-price">$17.99</div>
+                <a class="btn btn-secondary" href="#location">Order</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card">
+            <div class="food-img"></div>
+            <div class="food-info">
+              <div class="food-top">
+                <h3>Pepperoni House Pie</h3>
+                <div class="tag">Fan Favorite</div>
+              </div>
+              <p>
+                Balanced sauce, melted cheese, and generous pepperoni layered for the perfect bite.
+              </p>
+              <div class="food-bottom">
+                <div class="food-price">$19.99</div>
+                <a class="btn btn-secondary" href="#location">Order</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-card">
+            <div class="food-img"></div>
+            <div class="food-info">
+              <div class="food-top">
+                <h3>Loaded House Special</h3>
+                <div class="tag">Big Flavor</div>
+              </div>
+              <p>
+                Hearty toppings, strong flavor, and a premium look that belongs front and center.
+              </p>
+              <div class="food-bottom">
+                <div class="food-price">$22.99</div>
+                <a class="btn btn-secondary" href="#location">Order</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-title">
+          <span>Interactive Menu</span>
+          <h2>Open the case files</h2>
+          <p>
+            A clean interactive layout that keeps the police-station brand energy without making the
+            ordering experience confusing.
+          </p>
+        </div>
+
+        <div class="menu-shell">
+          <div class="menu-tabs">
+            <button class="menu-tab active" data-tab="pizza">Pizza</button>
+            <button class="menu-tab" data-tab="wings">Wings</button>
+            <button class="menu-tab" data-tab="sides">Sides</button>
+            <button class="menu-tab" data-tab="drinks">Drinks</button>
+          </div>
+
+          <div class="menu-panel">
+            <div class="menu-group active" id="pizza">
+              <div class="menu-grid">
+                <div class="menu-item">
+                  <div>
+                    <h4>Cheese Pizza</h4>
+                    <p>Classic red sauce, house cheese blend, golden finish.</p>
+                  </div>
+                  <strong>$14.99</strong>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <h4>Pepperoni Pizza</h4>
+                    <p>Loaded with pepperoni and finished with perfect oven crisp.</p>
+                  </div>
+                  <strong>$16.99</strong>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <h4>Square Style House Pie</h4>
+                    <p>Old school square cut, thick edge crunch, signature house flavor.</p>
+                  </div>
+                  <strong>$18.99</strong>
                 </div>
               </div>
+            </div>
 
-              <div class="loc-item">
-                <div class="loc-icon">➡️</div>
-                <div>
-                  <strong>Next stop</strong><br>
-                  <span id="nextStop" class="muted">Loading next stop...</span>
+            <div class="menu-group" id="wings">
+              <div class="menu-grid">
+                <div class="menu-item">
+                  <div>
+                    <h4>Buffalo Wings</h4>
+                    <p>Classic heat with a bold finish.</p>
+                  </div>
+                  <strong>$10.99</strong>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <h4>Garlic Parmesan Wings</h4>
+                    <p>Buttery, savory, and crowd-pleasing.</p>
+                  </div>
+                  <strong>$11.99</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-group" id="sides">
+              <div class="menu-grid">
+                <div class="menu-item">
+                  <div>
+                    <h4>Cheesy Bread</h4>
+                    <p>Golden baked bread topped with bubbling cheese.</p>
+                  </div>
+                  <strong>$7.99</strong>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <h4>Fries</h4>
+                    <p>Hot, crisp, and easy to add to any order.</p>
+                  </div>
+                  <strong>$4.99</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-group" id="drinks">
+              <div class="menu-grid">
+                <div class="menu-item">
+                  <div>
+                    <h4>Bottled Soda</h4>
+                    <p>Cold and ready to go.</p>
+                  </div>
+                  <strong>$2.49</strong>
+                </div>
+                <div class="menu-item">
+                  <div>
+                    <h4>2-Liter</h4>
+                    <p>The easy family add-on.</p>
+                  </div>
+                  <strong>$3.99</strong>
                 </div>
               </div>
             </div>
           </div>
-
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-
-  <a href="tel:+14124992389" class="button button-primary">
-    Call to Order
-  </a>
-
-  <a id="directionsBtn" class="button button-secondary" target="_blank" rel="noopener noreferrer">
-    Get Directions
-  </a>
-
-  <a id="scheduleBtn" class="button button-secondary" href="#location">
-    View Schedule
-  </a>
-
-</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">What people are saying.</h2>
-          <p class="section-copy">
-            Real reviews make the truck feel trusted, local, and worth the stop.
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-title">
+          <span>Social Proof</span>
+          <h2>What people say</h2>
+          <p>
+            Keep the copy simple and strong. Real praise closes more orders than flashy design ever will.
           </p>
         </div>
+
+        <div class="review-grid">
+          <article class="review">
+            <p>
+              Super nice people, the pizza is great. The pizza has the old school square feel and taste.
+              Perfect crunch. It’s one of those pizza you can just keep eating. Generous toppings.
+              We’ll be back for sure.
+            </p>
+            <strong>Verified Customer</strong>
+          </article>
+
+          <article class="review">
+            <p>
+              Best pizza around here. Highly recommend.
+            </p>
+            <strong>Local Favorite</strong>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="reviews-grid">
-        <article class="card review">
-          <div class="stars">★★★★★</div>
+    <section class="cta" id="location">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Hungry yet?</h2>
           <p>
-          We tracked down Smoke and Dre’s after a few drinks and the steak specialty pizza was really good, but the tacos were so good.
+            Police Station Pizza House is built for people who want pizza done the right way:
+            crisp, comforting, generous, and worth coming back for.
           </p>
-          <small>Donna Parker</small>
-        </article>
-
-        <article class="card review">
-          <div class="stars">★★★★★</div>
-          <p>
-            Second visit and they nailed it. The chili cheese dogs were some of the best I’ve had in a long time, and the service was great too.
-          </p>
-          <small>Colin Brooks</small>
-        </article>
-
-        <article class="card review">
-          <div class="stars">★★★★★</div>
-          <p>
-            BEST PIZZA IN TOWN!!! We smelled the truck from down the street and couldn’t resist. One bite and we were obsessed!!! So good!!!
-          </p>
-          <small>Amber Taylor</small>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="signup">
-    <div class="container">
-      <div class="cta-grid">
-        <article id="signupCard" class="card signup-card">
-          <button class="card-spotlight-close" type="button" data-close-spotlight aria-label="Close signup">×</button>
-          <button class="eyebrow-button" type="button" data-open-spotlight="signupCard" style="margin-bottom:12px">📩 Join the Smoke Crew</button>
-          <h2 class="section-title" style="font-size:38px">Get alerts, specials, and new menu drops.</h2>
-          <p class="section-copy">Be the first to hear where we’re parked, what’s cooking, and when special deals drop.</p>
-
-          <form
-            id="signupForm"
-            class="signup-form"
-            action="https://script.google.com/macros/s/AKfycbzcYSOzok09mGN-4u1eG7O1e5zCjxcjBbtySq9hfpPVoE0HPm2YIhjengAFmg4SDV5NeA/exec"
-            method="POST"
-            target="hidden_iframe"
-          >
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First name"
-              aria-label="First name"
-              required
-            >
-            <input
-              type="email"
-              name="email"
-              placeholder="Email address"
-              aria-label="Email address"
-              required
-            >
-            <button id="joinBtn" class="button button-primary" type="submit">Join Now</button>
-          </form>
-
-          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-          <p id="success" style="display:none;color:var(--success);margin-top:14px">
-            You're in. Smoke Crew gets the first word.
-          </p>
-
-          <p id="signupError" style="display:none;color:var(--danger);margin-top:14px">
-            Something went wrong. Please try again.
-          </p>
-        </article>
-
-        <article id="referralCard" class="card referral-card">
-          <button class="card-spotlight-close" type="button" data-close-spotlight aria-label="Close share">×</button>
-          <button class="eyebrow-button" type="button" data-open-spotlight="referralCard" style="margin-bottom:12px">🎉 Share with a friend</button>
-          <h2 class="section-title" style="font-size:38px">Bring somebody hungry. Save on the next stop.</h2>
-          <p class="section-copy">Bring a hungry friend with you and get 20% off your meal. Simple.</p>
-          <div class="referral-badge">20% OFF your meal</div>
-
-          <div style="margin-top:20px">
-            <button id="shareBtn" class="button button-secondary" type="button">Share</button>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="tel:+10000000000">Call to Order</a>
+            <a class="btn btn-secondary" href="#">Get Directions</a>
           </div>
-
-          <p id="shareMessage" style="display:none;color:var(--success);margin-top:14px">
-            Message copied. Paste it into a text or email.
-          </p>
-        </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Smoke & Dre Grille logo" class="footer-logo">
-        <p class="footer-copy">
-          Fresh street food, bold flavor, and local stops worth pulling up for.
-        </p>
-      </div>
-
-      <div class="footer-block">
-        <h3>Contact</h3>
-        <p><a href="tel:+14124992389">(412) 499-2389</a></p>
-        <p><a href="https://www.instagram.com/smokes_grille96/" target="_blank" rel="noopener noreferrer">@smokes_grille96</a></p>
-      </div>
-
-      <div class="footer-block">
-        <h3>Today</h3>
-        <p id="footerStop">Loading location...</p>
-        <p id="footerHours">Loading hours...</p>
-      </div>
-
-      <div class="footer-block">
-        <h3>Smoke Crew</h3>
-        <p>Join for location updates, specials, and menu drops.</p>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> Smoke & Dre Grille. All rights reserved.</p>
-      <p>Made by <strong>RocketDevs</strong></p>
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Police Station Pizza House</div>
+      <div>Italian Style Pizza • Built with glow, grit, and appetite</div>
     </div>
   </footer>
 
   <script>
-    const SHEET_ID = "1_UlglhOM7eLPYSZ8xGadKYEmf0nnjxo9OH3VIVVFpIM";
-    const API_KEY = "AIzaSyBub37cwN_kfgTuStteDRdssP-_kwllqZA";
-    const SHEET_RANGE = "Sheet1!A2:D2";
+    // Sticky nav effect
+    const nav = document.getElementById("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 24);
+    });
 
-    async function loadTruckData() {
-      const url =
-        `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(SHEET_RANGE)}?key=${API_KEY}`;
+    // Interactive menu tabs
+    const tabs = document.querySelectorAll(".menu-tab");
+    const groups = document.querySelectorAll(".menu-group");
 
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const row = (data.values && data.values[0]) ? data.values[0] : [];
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.tab;
 
-        const todayStop = row[0] || "Location coming soon";
-        const todayAddress = row[1] || "";
-        const todayHours = row[2] || "Hours coming soon";
-        const nextStop = row[3] || "Next stop coming soon";
+        tabs.forEach((t) => t.classList.remove("active"));
+        groups.forEach((g) => g.classList.remove("active"));
 
-        document.getElementById("todayStop").textContent = todayStop;
-        document.getElementById("todayHours").textContent = todayHours;
-        document.getElementById("nextStop").textContent = nextStop;
-
-        const footerStop = document.getElementById("footerStop");
-        const footerHours = document.getElementById("footerHours");
-        if (footerStop) footerStop.textContent = todayStop;
-        if (footerHours) footerHours.textContent = todayHours;
-
-        const fullLocation = `${todayStop}, ${todayAddress}`.trim();
-        const encodedLocation = encodeURIComponent(fullLocation);
-
-        document.getElementById("truckMap").src =
-          `https://www.google.com/maps?q=${encodedLocation}&z=16&output=embed`;
-
-        document.getElementById("directionsBtn").href =
-          `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
-
-      } catch (error) {
-        console.error("Sheet failed to load", error);
-
-        document.getElementById("todayStop").textContent = "Location unavailable";
-        document.getElementById("todayHours").textContent = "Check social media";
-        document.getElementById("nextStop").textContent = "Next stop coming soon";
-
-        const footerStop = document.getElementById("footerStop");
-        const footerHours = document.getElementById("footerHours");
-        if (footerStop) footerStop.textContent = "Location unavailable";
-        if (footerHours) footerHours.textContent = "Check social media";
-      }
-    }
-
-    loadTruckData();
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const spotlightOverlay = document.getElementById("spotlightOverlay");
-    const signupCard = document.getElementById("signupCard");
-    const referralCard = document.getElementById("referralCard");
-
-    function openSpotlight(cardId) {
-      const card = document.getElementById(cardId);
-      if (!card) return;
-
-      closeSpotlight();
-
-      card.classList.add("spotlight");
-      spotlightOverlay.classList.add("active");
-      document.body.classList.add("spotlight-active");
-
-      if (cardId === "signupCard") {
-        const firstInput = card.querySelector('input[name="firstName"]');
-        if (firstInput) {
-          setTimeout(() => firstInput.focus(), 250);
-        }
-      }
-
-      if (cardId === "referralCard") {
-        const shareBtnFocus = card.querySelector("#shareBtn");
-        if (shareBtnFocus) {
-          setTimeout(() => shareBtnFocus.focus(), 250);
-        }
-      }
-    }
-
-    function closeSpotlight() {
-      signupCard.classList.remove("spotlight");
-      referralCard.classList.remove("spotlight");
-      spotlightOverlay.classList.remove("active");
-      document.body.classList.remove("spotlight-active");
-    }
-
-    document.querySelectorAll("[data-open-spotlight]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const cardId = button.getAttribute("data-open-spotlight");
-        const section = document.getElementById("signup");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-        setTimeout(() => openSpotlight(cardId), 220);
+        tab.classList.add("active");
+        document.getElementById(target).classList.add("active");
       });
     });
 
-    document.querySelectorAll("[data-close-spotlight]").forEach((button) => {
-      button.addEventListener("click", closeSpotlight);
+    // Hero parallax
+    const heroBg = document.getElementById("heroBg");
+    const heroCard = document.getElementById("heroCard");
+
+    window.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 16;
+      const y = (e.clientY / window.innerHeight - 0.5) * 16;
+
+      heroBg.style.transform = `scale(1.08) translate(${x * -0.8}px, ${y * -0.8}px)`;
+      heroCard.style.transform = `rotateY(${x * 0.7}deg) rotateX(${y * -0.5}deg) translateY(-2px)`;
     });
 
-    spotlightOverlay.addEventListener("click", closeSpotlight);
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeSpotlight();
-      }
+    window.addEventListener("mouseleave", () => {
+      heroBg.style.transform = "scale(1.06)";
+      heroCard.style.transform = "rotateY(0deg) rotateX(0deg)";
     });
 
-    const signupForm = document.getElementById("signupForm");
-    const joinBtn = document.getElementById("joinBtn");
-    const successMessage = document.getElementById("success");
-    const signupError = document.getElementById("signupError");
+    // Ember particles
+    const canvas = document.getElementById("embers");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
 
-    signupForm.addEventListener("submit", function () {
-      successMessage.style.display = "none";
-      signupError.style.display = "none";
-      joinBtn.disabled = true;
-      joinBtn.textContent = "Joining...";
-
-      setTimeout(() => {
-        signupForm.reset();
-        joinBtn.disabled = false;
-        joinBtn.textContent = "Join Now";
-        successMessage.textContent = "You're in. Smoke Crew gets the first word.";
-        successMessage.style.display = "block";
-
-        setTimeout(() => {
-          closeSpotlight();
-        }, 900);
-      }, 1200);
-    });
-
-    const shareBtn = document.getElementById("shareBtn");
-    const shareMessage = document.getElementById("shareMessage");
-
-    function showShareMessage(text) {
-      shareMessage.textContent = text;
-      shareMessage.style.display = "block";
-
-      setTimeout(() => {
-        shareMessage.style.display = "none";
-      }, 3000);
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     }
 
-    shareBtn.addEventListener("click", async () => {
-      const shareUrl = window.location.href;
-      const emailSubject = "Come eat with me at Smoke & Dre Grille";
-      const emailBody = `Hey, I want to try Smoke & Dre Grille with you.
+    function createParticles() {
+      const count = window.innerWidth < 768 ? 28 : 52;
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
+        r: Math.random() * 2.4 + 0.6,
+        speedY: Math.random() * 0.6 + 0.15,
+        speedX: (Math.random() - 0.5) * 0.35,
+        alpha: Math.random() * 0.45 + 0.08
+      }));
+    }
 
-If you come with me as my hungry friend, I get 20% off my meal.
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-Here’s the link:
-${shareUrl}`;
+      particles.forEach((p) => {
+        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 8);
+        glow.addColorStop(0, `rgba(255, 210, 120, ${p.alpha})`);
+        glow.addColorStop(0.35, `rgba(255, 145, 35, ${p.alpha * 0.65})`);
+        glow.addColorStop(1, "rgba(255, 120, 20, 0)");
 
-      const shortShareText = "Come eat with me at Smoke & Dre Grille. If you come as my hungry friend, I get 20% off my meal.";
-      const copyMessage = `${shortShareText} ${shareUrl}`;
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 8, 0, Math.PI * 2);
+        ctx.fill();
 
-      try {
-        if (navigator.share) {
-          await navigator.share({
-            title: emailSubject,
-            text: shortShareText,
-            url: shareUrl
-          });
-          showShareMessage("Share sheet opened.");
-          setTimeout(() => {
-            closeSpotlight();
-          }, 700);
-          return;
+        p.y -= p.speedY;
+        p.x += p.speedX;
+
+        if (p.y < -20) {
+          p.y = canvas.offsetHeight + 20;
+          p.x = Math.random() * canvas.offsetWidth;
         }
 
-        await navigator.clipboard.writeText(copyMessage);
+        if (p.x < -20) p.x = canvas.offsetWidth + 20;
+        if (p.x > canvas.offsetWidth + 20) p.x = -20;
+      });
 
-        const mailtoUrl =
-          `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      requestAnimationFrame(drawParticles);
+    }
 
-        window.location.href = mailtoUrl;
-        showShareMessage("Message copied and email draft opened.");
-        setTimeout(() => {
-          closeSpotlight();
-        }, 700);
-      } catch (error) {
-        console.error("Share failed", error);
-
-        try {
-          await navigator.clipboard.writeText(copyMessage);
-          showShareMessage("Message copied. Paste it into text or email.");
-          setTimeout(() => {
-            closeSpotlight();
-          }, 700);
-        } catch (copyError) {
-          console.error("Copy failed", copyError);
-          showShareMessage("Could not copy the message. Please copy the link manually.");
-        }
-      }
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      createParticles();
     });
+
+    resizeCanvas();
+    createParticles();
+    drawParticles();
   </script>
 </body>
 </html>
