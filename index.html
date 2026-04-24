@@ -1,800 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Police Station Pizza | Authentic Ohio Valley Style Pizza in Ambridge, PA</title>
-    <meta name="description" content="Police Station Pizza — The legendary square-cut Ohio Valley style pizza in Ambridge, PA. Thick crust, tangy sauce, and cheese added after baking. Order by phone or walk in.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a0a;
-            color: #f5f5f5;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation - Premium Green Banner */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: linear-gradient(135deg, #1a5f1a 0%, #0d3d0d 100%);
-            border-bottom: 3px solid #c41e3a;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
-        }
-
-        nav .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 18px;
-            padding-bottom: 18px;
-        }
-
-        nav h1 {
-            font-size: 26px;
-            font-weight: 800;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 3px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-
-        nav .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a, nav button {
-            font-size: 14px;
-            font-weight: 700;
-            color: #ffffff;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-        }
-
-        .btn-order {
-            padding: 11px 24px;
-            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
-            color: #ffffff;
-            border-radius: 6px;
-            font-weight: 800;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-order:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.6);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            border-bottom: 3px solid #c41e3a;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(196, 30, 58, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h2 {
-            font-size: 64px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
-        }
-
-        .hero-label {
-            font-size: 12px;
-            font-weight: 800;
-            color: #c41e3a;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: #d0d0d0;
-            margin-bottom: 36px;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 32px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #1a5f1a 0%, #0d3d0d 100%);
-            color: #ffffff;
-            border: 2px solid #1a5f1a;
-            box-shadow: 0 8px 20px rgba(26, 95, 26, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0d3d0d 0%, #051a05 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(26, 95, 26, 0.5);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
-            color: #ffffff;
-            border: 2px solid #c41e3a;
-            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #a01830 0%, #7a1425 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.5);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 450px;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #1a1a1a;
-            border: 3px solid #c41e3a;
-            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.3);
-            position: relative;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(196, 30, 58, 0.1) 0%, transparent 100%);
-            z-index: 1;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Featured Menu Section */
-        .featured-menu {
-            padding: 80px 0;
-            border-bottom: 3px solid #c41e3a;
-            background: #000000;
-            position: relative;
-        }
-
-        .featured-menu::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(26, 95, 26, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .featured-menu h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 56px;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-bottom: 56px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .featured-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 3px solid #c41e3a;
-            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.3);
-            transition: all 0.3s ease;
-            height: 320px;
-            cursor: pointer;
-        }
-
-        .featured-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 80px rgba(196, 30, 58, 0.5);
-        }
-
-        .featured-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .featured-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .featured-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
-            transition: all 0.3s ease;
-        }
-
-        .featured-card-label {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 800;
-            z-index: 2;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
-        }
-
-        .featured-cta {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .featured-cta a {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #1a5f1a 0%, #0d3d0d 100%);
-            color: #ffffff;
-            border-radius: 6px;
-            font-weight: 800;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(26, 95, 26, 0.3);
-        }
-
-        .featured-cta a:hover {
-            background: linear-gradient(135deg, #0d3d0d 0%, #051a05 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(26, 95, 26, 0.5);
-        }
-
-        /* Location Section */
-        .location-section {
-            padding: 80px 0;
-            border-bottom: 3px solid #c41e3a;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-        }
-
-        .location-section h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 56px;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .location-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .location-info h3 {
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c41e3a;
-            margin-bottom: 12px;
-        }
-
-        .location-info p {
-            font-size: 16px;
-            color: #d0d0d0;
-            margin-bottom: 28px;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .location-info a {
-            color: #1a5f1a;
-            font-weight: 700;
-            text-decoration: underline;
-        }
-
-        .location-map {
-            width: 100%;
-            height: 450px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 3px solid #c41e3a;
-            box-shadow: 0 20px 60px rgba(196, 30, 58, 0.3);
-        }
-
-        .location-map iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Reviews */
-        .reviews {
-            padding: 80px 0;
-            border-bottom: 3px solid #c41e3a;
-            background: #000000;
-        }
-
-        .reviews h2 {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 56px;
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
-
-        .review-card {
-            padding: 32px;
-            border: 2px solid #c41e3a;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.2);
-            display: block;
-        }
-
-        .review-card:hover {
-            border-color: #ffd700;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            transform: translateY(-8px);
-            box-shadow: 0 16px 40px rgba(196, 30, 58, 0.4);
-        }
-
-        .review-text {
-            font-size: 17px;
-            color: #e0e0e0;
-            margin-bottom: 20px;
-            font-style: italic;
-            line-height: 1.8;
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        .review-author {
-            font-size: 14px;
-            font-weight: 800;
-            color: #1a5f1a;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .review-source {
-            font-size: 12px;
-            color: #c41e3a;
-            font-weight: 800;
-            text-decoration: underline;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #1a5f1a 0%, #0d3d0d 100%);
-            color: #ffffff;
-            text-align: center;
-            border-bottom: 3px solid #c41e3a;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(196, 30, 58, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .cta h2 {
-            font-size: 56px;
-            font-weight: 800;
-            margin-bottom: 28px;
-            font-family: 'Playfair Display', serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta p {
-            font-size: 18px;
-            color: #d0d0d0;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn-white {
-            padding: 15px 36px;
-            background: #ffffff;
-            color: #1a5f1a;
-            border-radius: 6px;
-            font-weight: 800;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .btn-white:hover {
-            background: #ffd700;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.4);
-        }
-
-        .btn-red-outline {
-            padding: 15px 36px;
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #c41e3a;
-            border-radius: 6px;
-            font-weight: 800;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.2);
-        }
-
-        .btn-red-outline:hover {
-            background: #c41e3a;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: #000000;
-            border-top: 3px solid #c41e3a;
-            padding: 56px 0;
-            color: #f5f5f5;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .footer-col h4 {
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #c41e3a;
-            margin-bottom: 16px;
-        }
-
-        .footer-col p, .footer-col a {
-            font-size: 14px;
-            color: #999999;
-            margin-bottom: 10px;
-            display: block;
-            font-weight: 300;
-        }
-
-        .footer-col a:hover {
-            color: #c41e3a;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            font-size: 12px;
-            color: #666666;
-            font-weight: 300;
-        }
-
-        @media (max-width: 1024px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-content h2 {
-                font-size: 48px;
-            }
-
-            .cta h2 {
-                font-size: 40px;
-            }
-
-            .location-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            nav h1 {
-                font-size: 20px;
-            }
-
-            .hero {
-                padding: 40px 0;
-            }
-
-            .hero-content h2 {
-                font-size: 36px;
-            }
-
-            .featured-menu, .location-section, .reviews, .cta {
-                padding: 40px 0;
-            }
-
-            nav .container {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Police Station Pizza | Ambridge, PA</title>
+  <meta name="description" content="Legendary square-cut Ohio Valley pizza in Ambridge, PA. Thick crust, tangy sauce, and cheese added after baking.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #f0ebe6;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      background: #0a0a0a;
+    }
+
+    .hero-copy {
+      padding: 80px;
+    }
+
+    .hero-eyebrow {
+      color: #e05040;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 em {
+      color: #e05040;
+      font-style: normal;
+    }
+
+    .hero-sub {
+      color: #aaa;
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+
+    .btn {
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .btn-green {
+      background: #c8321a;
+      color: white;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      background: #c8321a;
+      padding: 15px 20px;
+      border-radius: 12px;
+    }
+
+    .hero-badge .price {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .hero-badge .label {
+      font-size: 12px;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding: 40px 20px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero-image {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div id="app">
-        <!-- Navigation - Premium Green Banner -->
-        <nav>
-            <div class="container">
-                <div>
-                    <h1>🍕 POLICE STATION PIZZA</h1>
-                </div>
-                <div class="nav-right">
-                    <a href="tel:724-266-9559">📞 724-266-9559</a>
-                    <button class="btn-order" onclick="scrollToMenu()">ORDER NOW</button>
-                </div>
-            </div>
-        </nav>
 
-        <!-- Home Page -->
-        <div id="home-page">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <p class="hero-label">The Ambridge Legend</p>
-                        <h2>Legendary Square Cut Pizza</h2>
-                        <p>Welcome to Police Station Pizza. We're famous for our thick, rectangular, square-cut trays with the unique cheese-on-top style. Fresh dough, tangy sauce, and a tradition that hasn't changed in 30+ years.</p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary" onclick="scrollToMenu()">See Menu</button>
-                            <a href="tel:724-266-9559" class="btn btn-secondary">Call to Order</a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Police Station Pizza">
-                    </div>
-                </div>
-            </section>
+<!-- HERO (FINAL COMBINED VERSION) -->
+<section class="hero">
 
-            <!-- Featured Menu Section -->
-            <section class="featured-menu" id="menu-section">
-                <div class="container">
-                    <h2>Our Featured Pizza</h2>
-                    <div class="featured-grid">
-                        <div class="featured-card">
-                            <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=600&q=80" alt="Classic Pepperoni">
-                            <div class="featured-card-label">Classic Pepperoni</div>
-                        </div>
-                        <div class="featured-card">
-                            <img src="https://images.unsplash.com/photo-1571407-918c92246560?auto=format&fit=crop&w=600&q=80" alt="Deluxe Toppings">
-                            <div class="featured-card-label">Deluxe Toppings</div>
-                        </div>
-                        <div class="featured-card">
-                            <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80" alt="Fresh Baked">
-                            <div class="featured-card-label">Fresh Baked</div>
-                        </div>
-                    </div>
-                    <div class="featured-cta">
-                        <a href="#full-menu">View Full Menu →</a>
-                    </div>
-                </div>
-            </section>
+  <div class="hero-copy">
+    <div class="hero-eyebrow">The Ambridge Legend</div>
 
-            <!-- Location Section -->
-            <section class="location-section">
-                <div class="container">
-                    <h2>📍 Find Us</h2>
-                    <div class="location-content">
-                        <div class="location-info">
-                            <h3>Address</h3>
-                            <p>1007 Merchant St<br>Ambridge, PA 15003</p>
-                            <h3 style="margin-top: 28px;">Hours</h3>
-                            <p>Monday - Saturday: 12 PM - 10 PM<br>Sunday: Closed</p>
-                            <h3 style="margin-top: 28px;">Phone</h3>
-                            <p><a href="tel:724-266-9559">724-266-9559</a></p>
-                            <a href="https://www.google.com/maps/search/1007+Merchant+St,+Ambridge,+PA+15003" target="_blank" style="margin-top: 28px; display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, #1a5f1a 0%, #0d3d0d 100%); color: #ffffff; border-radius: 6px; font-weight: 700; box-shadow: 0 8px 20px rgba(26, 95, 26, 0.3); text-transform: uppercase; letter-spacing: 1px; font-size: 13px;">Get Directions</a>
-                        </div>
-                        <div class="location-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.5678901234!2d-80.3716!3d40.5233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f8c8c8c8c8cd%3A0x1234567890abcdef!2s1007%20Merchant%20St%2C%20Ambridge%2C%20PA%2015003!5e0!3m2!1sen!2sus!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <h1>
+      Legendary Square Cut Pizza<br>
+      <em>done right.</em>
+    </h1>
 
-            <!-- Reviews -->
-            <section class="reviews">
-                <div class="container">
-                    <h2>⭐ Customer Reviews</h2>
-                    <div class="reviews-grid">
-                        <a href="https://www.yelp.com/biz/police-station-pizza-ambridge" target="_blank" class="review-card">
-                            <div class="review-text">"Pizza is outrageously good. Best in the area. The hoagies are amazing."</div>
-                            <div class="review-author">Kurt A.</div>
-                            <div class="review-source">View on Yelp →</div>
-                        </a>
-                        <a href="https://www.yelp.com/biz/police-station-pizza-ambridge" target="_blank" class="review-card">
-                            <div class="review-text">"Everything was perfect. French fries are the best around, crispy with a soft center."</div>
-                            <div class="review-author">Matt B.</div>
-                            <div class="review-source">View on Yelp →</div>
-                        </a>
-                        <a href="https://www.yelp.com/biz/police-station-pizza-ambridge" target="_blank" class="review-card">
-                            <div class="review-text">"Good food and service. One of the best hidden treasures of Beaver County."</div>
-                            <div class="review-author">Ken Y.</div>
-                            <div class="review-source">View on Yelp →</div>
-                        </a>
-                        <a href="https://www.yelp.com/biz/police-station-pizza-ambridge" target="_blank" class="review-card">
-                            <div class="review-text">"Worth going out of your way for. Pizza is outrageously good."</div>
-                            <div class="review-author">Customer Review</div>
-                            <div class="review-source">View on Yelp →</div>
-                        </a>
-                    </div>
-                </div>
-            </section>
+    <p class="hero-sub">
+      Thick crust. Tangy sauce. Cheese layered on top after baking. 
+      This is Ohio Valley style pizza — and once you try it, nothing else compares.
+    </p>
 
-            <!-- CTA Section -->
-            <section class="cta">
-                <div class="container">
-                    <h2>Ready to Order?</h2>
-                    <p>Browse our menu and customize your order. Then give us a call to complete your purchase.</p>
-                    <div class="cta-buttons">
-                        <button class="btn-white" onclick="scrollToMenu()">View Menu</button>
-                        <a href="tel:724-266-9559" class="btn-red-outline">Call Now</a>
-                    </div>
-                </div>
-            </section>
-        </div>
+    <a href="#" class="btn btn-green">See Menu</a>
+    <a href="tel:7242669559" class="btn btn-outline">Call to Order</a>
+  </div>
+
+  <div class="hero-image">
+    <!-- 🔥 YOUR IMAGE GOES HERE -->
+    <img src="assets/pizza-hero.jpg" alt="Square cut pizza tray">
+
+    <div class="hero-badge">
+      <div class="price">Fresh</div>
+      <div class="label">Square Cut Trays</div>
     </div>
+  </div>
 
-    <script>
-        function scrollToMenu() {
-            document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+</section>
+
 </body>
 </html>
