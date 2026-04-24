@@ -1,5 +1,3 @@
-psp 002
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +54,8 @@ psp 002
             position: sticky;
             top: 0;
             z-index: 50;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #1a5f1a 0%, #2d7a2d 100%);
+            border-bottom: 3px solid #dc143c;
         }
 
         nav .container {
@@ -71,12 +69,12 @@ psp 002
         nav h1 {
             font-size: 20px;
             font-weight: 700;
-            color: #000000;
+            color: #ffffff;
         }
 
         nav .subtitle {
             font-size: 12px;
-            color: #6b7280;
+            color: #e0e0e0;
             margin-top: 4px;
         }
 
@@ -89,17 +87,17 @@ psp 002
         nav a, nav button {
             font-size: 14px;
             font-weight: 600;
-            color: #000000;
+            color: #ffffff;
             transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #6b7280;
+            color: #ffd700;
         }
 
         .btn-order {
             padding: 10px 16px;
-            background: #000000;
+            background: #dc143c;
             color: #ffffff;
             border-radius: 8px;
             font-weight: 700;
@@ -108,13 +106,14 @@ psp 002
         }
 
         .btn-order:hover {
-            background: #1f2937;
+            background: #b91230;
         }
 
         /* Hero Section */
         .hero {
             padding: 64px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 3px solid #dc143c;
+            background: linear-gradient(135deg, #f0f8f0 0%, #fff5f5 100%);
         }
 
         .hero .container {
@@ -129,13 +128,13 @@ psp 002
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .hero-label {
             font-size: 12px;
             font-weight: 700;
-            color: #6b7280;
+            color: #dc143c;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 16px;
@@ -143,7 +142,7 @@ psp 002
 
         .hero-content p {
             font-size: 18px;
-            color: #4b5563;
+            color: #333333;
             margin-bottom: 32px;
             line-height: 1.7;
         }
@@ -164,22 +163,22 @@ psp 002
         }
 
         .btn-primary {
-            background: #000000;
+            background: #1a5f1a;
             color: #ffffff;
         }
 
         .btn-primary:hover {
-            background: #1f2937;
+            background: #0d3d0d;
         }
 
         .btn-secondary {
-            background: #f3f4f6;
-            color: #000000;
-            border: 1px solid #e5e7eb;
+            background: #dc143c;
+            color: #ffffff;
+            border: 1px solid #dc143c;
         }
 
         .btn-secondary:hover {
-            background: #e5e7eb;
+            background: #b91230;
         }
 
         .hero-image {
@@ -188,6 +187,7 @@ psp 002
             border-radius: 16px;
             overflow: hidden;
             background: #f3f4f6;
+            border: 3px solid #1a5f1a;
         }
 
         .hero-image img {
@@ -199,14 +199,14 @@ psp 002
         /* Featured Items */
         .featured {
             padding: 64px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 3px solid #dc143c;
         }
 
         .featured h2 {
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 48px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .items-grid {
@@ -217,39 +217,126 @@ psp 002
 
         .item-card {
             padding: 24px;
-            border: 1px solid #e5e7eb;
+            border: 2px solid #1a5f1a;
             border-radius: 8px;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
+            background: #ffffff;
         }
 
         .item-card:hover {
-            border-color: #d1d5db;
+            border-color: #dc143c;
+            background: #f0f8f0;
         }
 
         .item-card h3 {
             font-weight: 700;
             font-size: 16px;
             margin-bottom: 8px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .item-card p {
             font-size: 14px;
-            color: #6b7280;
+            color: #666666;
             margin-bottom: 16px;
         }
 
         .item-price {
             font-size: 18px;
             font-weight: 700;
-            color: #000000;
+            color: #dc143c;
+        }
+
+        /* Chalkboard Menu */
+        .chalkboard-menu {
+            padding: 64px 0;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            border-bottom: 3px solid #dc143c;
+        }
+
+        .chalkboard-menu h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #ffd700;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .chalkboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .chalkboard-item {
+            background: linear-gradient(135deg, #3d3d3d 0%, #2d2d2d 100%);
+            padding: 32px;
+            border-radius: 12px;
+            border: 2px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chalkboard-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 215, 0, 0.1);
+            transition: left 0.3s ease;
+        }
+
+        .chalkboard-item:hover::before {
+            left: 100%;
+        }
+
+        .chalkboard-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        }
+
+        .chalkboard-item-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .chalkboard-item:hover .chalkboard-item-name {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .chalkboard-item-desc {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chalkboard-item-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #dc143c;
+            position: relative;
+            z-index: 1;
         }
 
         /* Info Section */
         .info {
             padding: 64px 0;
-            background: #f9fafb;
-            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #f0f8f0 0%, #fff5f5 100%);
+            border-bottom: 3px solid #dc143c;
         }
 
         .info-grid {
@@ -263,27 +350,83 @@ psp 002
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #000000;
+            color: #1a5f1a;
             margin-bottom: 12px;
         }
 
         .info-item p {
             font-size: 14px;
-            color: #4b5563;
+            color: #333333;
             line-height: 1.8;
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 64px 0;
+            border-bottom: 3px solid #dc143c;
+        }
+
+        .location-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #1a5f1a;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #dc143c;
+            margin-bottom: 12px;
+        }
+
+        .location-info p {
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .location-info a {
+            color: #1a5f1a;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #1a5f1a;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Reviews */
         .reviews {
             padding: 64px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 3px solid #dc143c;
         }
 
         .reviews h2 {
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 48px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .reviews-grid {
@@ -294,13 +437,22 @@ psp 002
 
         .review-card {
             padding: 24px;
-            border: 1px solid #e5e7eb;
+            border: 2px solid #1a5f1a;
             border-radius: 8px;
+            background: #ffffff;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .review-card:hover {
+            border-color: #dc143c;
+            background: #f0f8f0;
+            transform: translateY(-4px);
         }
 
         .review-text {
             font-size: 14px;
-            color: #4b5563;
+            color: #333333;
             margin-bottom: 16px;
             font-style: italic;
             line-height: 1.7;
@@ -309,15 +461,22 @@ psp 002
         .review-author {
             font-size: 13px;
             font-weight: 700;
-            color: #000000;
+            color: #1a5f1a;
+        }
+
+        .review-source {
+            font-size: 11px;
+            color: #dc143c;
+            margin-top: 8px;
         }
 
         /* CTA Section */
         .cta {
             padding: 64px 0;
-            background: #000000;
+            background: linear-gradient(135deg, #1a5f1a 0%, #2d7a2d 100%);
             color: #ffffff;
             text-align: center;
+            border-bottom: 3px solid #dc143c;
         }
 
         .cta h2 {
@@ -328,7 +487,7 @@ psp 002
 
         .cta p {
             font-size: 18px;
-            color: #d1d5db;
+            color: #e0e0e0;
             margin-bottom: 32px;
             max-width: 600px;
             margin-left: auto;
@@ -345,35 +504,36 @@ psp 002
         .btn-white {
             padding: 12px 32px;
             background: #ffffff;
-            color: #000000;
+            color: #1a5f1a;
             border-radius: 8px;
             font-weight: 700;
             transition: background 0.2s;
         }
 
         .btn-white:hover {
-            background: #f3f4f6;
+            background: #ffd700;
         }
 
-        .btn-dark-outline {
+        .btn-red-outline {
             padding: 12px 32px;
             background: transparent;
             color: #ffffff;
-            border: 1px solid #4b5563;
+            border: 2px solid #dc143c;
             border-radius: 8px;
             font-weight: 700;
             transition: all 0.2s;
         }
 
-        .btn-dark-outline:hover {
-            border-color: #ffffff;
+        .btn-red-outline:hover {
+            background: #dc143c;
         }
 
         /* Footer */
         footer {
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
+            background: #1a5f1a;
+            border-top: 3px solid #dc143c;
             padding: 48px 0;
+            color: #ffffff;
         }
 
         .footer-grid {
@@ -382,7 +542,7 @@ psp 002
             gap: 32px;
             margin-bottom: 32px;
             padding-bottom: 32px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
         .footer-col h4 {
@@ -390,25 +550,25 @@ psp 002
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #000000;
+            color: #ffd700;
             margin-bottom: 16px;
         }
 
         .footer-col p, .footer-col a {
             font-size: 14px;
-            color: #4b5563;
+            color: #e0e0e0;
             margin-bottom: 8px;
             display: block;
         }
 
         .footer-col a:hover {
-            color: #000000;
+            color: #ffd700;
         }
 
         .footer-bottom {
             text-align: center;
             font-size: 12px;
-            color: #9ca3af;
+            color: #aaaaaa;
         }
 
         /* Menu Page */
@@ -419,11 +579,12 @@ psp 002
 
         .menu-sidebar {
             width: 320px;
-            border-right: 1px solid #e5e7eb;
+            border-right: 3px solid #1a5f1a;
             overflow-y: auto;
             position: sticky;
             top: 72px;
             height: calc(100vh - 72px);
+            background: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
         }
 
         .menu-categories {
@@ -439,25 +600,28 @@ psp 002
             border-radius: 8px;
             font-weight: 600;
             font-size: 14px;
-            color: #4b5563;
+            color: #333333;
             background: transparent;
             transition: all 0.2s;
-            border: none;
+            border: 2px solid transparent;
         }
 
         .category-btn:hover {
-            background: #f3f4f6;
+            background: #e8f5e9;
+            border-color: #1a5f1a;
         }
 
         .category-btn.active {
-            background: #000000;
+            background: #1a5f1a;
             color: #ffffff;
+            border-color: #dc143c;
         }
 
         .menu-content {
             flex: 1;
             padding: 48px;
             overflow-y: auto;
+            background: #ffffff;
         }
 
         .menu-header {
@@ -468,7 +632,7 @@ psp 002
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 16px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .menu-items {
@@ -480,7 +644,14 @@ psp 002
             align-items: center;
             justify-content: space-between;
             padding: 16px 0;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #f0f8f0;
+            padding-left: 12px;
+            padding-right: 12px;
         }
 
         .menu-item:last-child {
@@ -490,13 +661,13 @@ psp 002
         .menu-item-name {
             font-weight: 600;
             font-size: 16px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .menu-item-price {
             font-weight: 700;
             font-size: 16px;
-            color: #000000;
+            color: #dc143c;
             min-width: 60px;
             text-align: right;
         }
@@ -504,26 +675,26 @@ psp 002
         .menu-add-btn {
             width: 32px;
             height: 32px;
-            border: 2px solid #000000;
+            border: 2px solid #1a5f1a;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #000000;
+            color: #1a5f1a;
             font-size: 18px;
             transition: all 0.2s;
             margin-left: 16px;
         }
 
         .menu-add-btn:hover {
-            background: #000000;
+            background: #1a5f1a;
             color: #ffffff;
         }
 
         .cart-sidebar {
             width: 320px;
-            border-left: 1px solid #e5e7eb;
-            background: #ffffff;
+            border-left: 3px solid #1a5f1a;
+            background: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
             position: sticky;
             top: 72px;
             height: calc(100vh - 72px);
@@ -534,16 +705,18 @@ psp 002
 
         .cart-header {
             padding: 24px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 2px solid #1a5f1a;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: #1a5f1a;
+            color: #ffffff;
         }
 
         .cart-header h3 {
             font-size: 18px;
             font-weight: 700;
-            color: #000000;
+            color: #ffffff;
         }
 
         .cart-close {
@@ -551,7 +724,7 @@ psp 002
             border: none;
             font-size: 20px;
             cursor: pointer;
-            color: #6b7280;
+            color: #ffd700;
         }
 
         .cart-items {
@@ -565,7 +738,7 @@ psp 002
             gap: 12px;
             margin-bottom: 16px;
             padding-bottom: 16px;
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .cart-item:last-child {
@@ -579,20 +752,21 @@ psp 002
         .cart-item-name {
             font-weight: 600;
             font-size: 14px;
-            color: #000000;
+            color: #1a5f1a;
             margin-bottom: 4px;
         }
 
         .cart-item-price {
             font-size: 13px;
-            color: #6b7280;
+            color: #dc143c;
+            font-weight: 700;
         }
 
         .cart-item-controls {
             display: flex;
             align-items: center;
             gap: 8px;
-            background: #f3f4f6;
+            background: #e8f5e9;
             border-radius: 20px;
             padding: 4px 8px;
         }
@@ -605,7 +779,7 @@ psp 002
             align-items: center;
             justify-content: center;
             font-size: 12px;
-            color: #4b5563;
+            color: #1a5f1a;
             background: none;
             border: none;
             cursor: pointer;
@@ -616,12 +790,13 @@ psp 002
             text-align: center;
             font-weight: 600;
             font-size: 12px;
-            color: #000000;
+            color: #1a5f1a;
         }
 
         .cart-footer {
             padding: 24px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 2px solid #1a5f1a;
+            background: #1a5f1a;
         }
 
         .cart-total {
@@ -629,12 +804,13 @@ psp 002
             justify-content: space-between;
             margin-bottom: 16px;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .cart-call-btn {
             width: 100%;
             padding: 12px;
-            background: #000000;
+            background: #dc143c;
             color: #ffffff;
             border-radius: 8px;
             font-weight: 700;
@@ -645,12 +821,12 @@ psp 002
         }
 
         .cart-call-btn:hover {
-            background: #1f2937;
+            background: #b91230;
         }
 
         .cart-empty {
             text-align: center;
-            color: #6b7280;
+            color: #666666;
             padding: 32px 0;
         }
 
@@ -668,7 +844,7 @@ psp 002
                 height: auto;
                 position: static;
                 border-right: none;
-                border-bottom: 1px solid #e5e7eb;
+                border-bottom: 3px solid #1a5f1a;
             }
 
             .menu-categories {
@@ -690,7 +866,7 @@ psp 002
                 height: auto;
                 position: static;
                 border-left: none;
-                border-top: 1px solid #e5e7eb;
+                border-top: 3px solid #1a5f1a;
             }
 
             .hero .container {
@@ -704,6 +880,10 @@ psp 002
 
             .cta h2 {
                 font-size: 32px;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -720,7 +900,7 @@ psp 002
                 font-size: 32px;
             }
 
-            .featured, .info, .reviews, .cta {
+            .featured, .info, .reviews, .cta, .location-section, .chalkboard-menu {
                 padding: 32px 0;
             }
 
@@ -728,7 +908,7 @@ psp 002
                 padding: 16px;
             }
 
-            .items-grid {
+            .items-grid, .chalkboard-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -774,7 +954,7 @@ psp 002
                         <h2>Legendary Square Cut Pizza</h2>
                         <p>Welcome to Police Station Pizza. We're famous for our thick, rectangular, square-cut trays with the unique cheese-on-top style. Fresh dough, tangy sauce, and a tradition that hasn't changed in 30+ years.</p>
                         <div class="hero-buttons">
-                            <button class="btn btn-primary" onclick="showPage('menu')">See Menu</button>
+                            <button class="btn btn-primary" onclick="showPage('menu')">See Full Menu</button>
                             <a href="tel:724-266-9559" class="btn btn-secondary">Call to Order</a>
                         </div>
                     </div>
@@ -813,21 +993,81 @@ psp 002
                 </div>
             </section>
 
+            <!-- Chalkboard Menu Section -->
+            <section class="chalkboard-menu">
+                <div class="container">
+                    <h2>🎯 Today's Specials</h2>
+                    <div class="chalkboard-grid">
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Classic Cheese</div>
+                            <div class="chalkboard-item-desc">12 cuts, fresh mozzarella</div>
+                            <div class="chalkboard-item-price">$15.50</div>
+                        </div>
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Loaded Pepperoni</div>
+                            <div class="chalkboard-item-desc">12 cuts, extra pepperoni</div>
+                            <div class="chalkboard-item-price">$18.99</div>
+                        </div>
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Meat Lovers</div>
+                            <div class="chalkboard-item-desc">12 cuts, sausage & bacon</div>
+                            <div class="chalkboard-item-price">$19.99</div>
+                        </div>
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Veggie Delight</div>
+                            <div class="chalkboard-item-desc">12 cuts, fresh vegetables</div>
+                            <div class="chalkboard-item-price">$17.50</div>
+                        </div>
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Party Tray</div>
+                            <div class="chalkboard-item-desc">24 cuts, your choice</div>
+                            <div class="chalkboard-item-price">$30.00</div>
+                        </div>
+                        <div class="chalkboard-item">
+                            <div class="chalkboard-item-name">Pepperoni Rolls</div>
+                            <div class="chalkboard-item-desc">Fresh baked, 2 pack</div>
+                            <div class="chalkboard-item-price">$6.99</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Location Section -->
+            <section class="location-section">
+                <div class="container">
+                    <h2>📍 Find Us</h2>
+                    <div class="location-content">
+                        <div class="location-info">
+                            <h3>Address</h3>
+                            <p>1007 Merchant St<br>Ambridge, PA 15003</p>
+                            <h3 style="margin-top: 24px;">Hours</h3>
+                            <p>Monday - Saturday: 12 PM - 10 PM<br>Sunday: Closed</p>
+                            <h3 style="margin-top: 24px;">Phone</h3>
+                            <p><a href="tel:724-266-9559">724-266-9559</a></p>
+                            <a href="https://www.google.com/maps/search/1007+Merchant+St,+Ambridge,+PA+15003" target="_blank" style="margin-top: 24px; display: inline-block; padding: 12px 24px; background: #1a5f1a; color: #ffffff; border-radius: 8px; font-weight: 700;">Get Directions</a>
+                        </div>
+                        <div class="location-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.5678901234!2d-80.3716!3d40.5233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8834f8c8c8c8c8cd%3A0x1234567890abcdef!2s1007%20Merchant%20St%2C%20Ambridge%2C%20PA%2015003!5e0!3m2!1sen!2sus!4v1234567890123" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Info Section -->
             <section class="info">
                 <div class="container">
                     <div class="info-grid">
                         <div class="info-item">
-                            <h3>Location</h3>
+                            <h3>🏠 Location</h3>
                             <p>1007 Merchant St<br>Ambridge, PA 15003</p>
                         </div>
                         <div class="info-item">
-                            <h3>Hours</h3>
-                            <p>Mon-Sat: 12 PM - 9 PM<br>Sunday: Closed</p>
+                            <h3>⏰ Hours</h3>
+                            <p>Mon - Sat: 12 PM - 10 PM<br>Sunday: Closed</p>
                         </div>
                         <div class="info-item">
-                            <h3>Contact</h3>
-                            <p>724-266-9559<br>Call Ahead for Pickup</p>
+                            <h3>📞 Phone</h3>
+                            <p><a href="tel:724-266-9559">724-266-9559</a></p>
                         </div>
                     </div>
                 </div>
@@ -836,19 +1076,27 @@ psp 002
             <!-- Reviews -->
             <section class="reviews">
                 <div class="container">
-                    <h2>What People Say</h2>
+                    <h2>⭐ Customer Reviews</h2>
                     <div class="reviews-grid">
-                        <div class="review-card">
-                            <p class="review-text">"Best pizza in the Pittsburgh area. We've been going there for about 20 years and it is the best tasting pizza around."</p>
-                            <p class="review-author">— Gene P.</p>
+                        <div class="review-card" onclick="window.open('https://www.yelp.com/biz/police-station-pizza-ambridge', '_blank')">
+                            <div class="review-text">"Pizza is outrageously good. Best in the area. The hoagies are amazing."</div>
+                            <div class="review-author">Kurt A.</div>
+                            <div class="review-source">Click to view on Yelp →</div>
                         </div>
-                        <div class="review-card">
-                            <p class="review-text">"The dough is thick and flavorful, with an incredibly crunchy crust. The sauce is very fresh—they make it daily."</p>
-                            <p class="review-author">— F. L.</p>
+                        <div class="review-card" onclick="window.open('https://www.yelp.com/biz/police-station-pizza-ambridge', '_blank')">
+                            <div class="review-text">"Everything was perfect. French fries are the best around, crispy with a soft center."</div>
+                            <div class="review-author">Matt B.</div>
+                            <div class="review-source">Click to view on Yelp →</div>
                         </div>
-                        <div class="review-card">
-                            <p class="review-text">"The best Ohio Valley Pizza you'll find. When you order extra cheese, watch out because you're going to get it!"</p>
-                            <p class="review-author">— Christopher S.</p>
+                        <div class="review-card" onclick="window.open('https://www.yelp.com/biz/police-station-pizza-ambridge', '_blank')">
+                            <div class="review-text">"Good food and service. One of the best hidden treasures of Beaver County."</div>
+                            <div class="review-author">Ken Y.</div>
+                            <div class="review-source">Click to view on Yelp →</div>
+                        </div>
+                        <div class="review-card" onclick="window.open('https://www.yelp.com/biz/police-station-pizza-ambridge', '_blank')">
+                            <div class="review-text">"Worth going out of your way for. Pizza is outrageously good."</div>
+                            <div class="review-author">Customer Review</div>
+                            <div class="review-source">Click to view on Yelp →</div>
                         </div>
                     </div>
                 </div>
@@ -857,74 +1105,50 @@ psp 002
             <!-- CTA Section -->
             <section class="cta">
                 <div class="container">
-                    <h2>Hungry? Let's Fix That.</h2>
-                    <p>Pick your pizza, call it in, and we'll have it ready when you get here.</p>
+                    <h2>Ready to Order?</h2>
+                    <p>Browse our full menu and add items to your cart. Then give us a call to complete your order.</p>
                     <div class="cta-buttons">
-                        <button class="btn-white" onclick="showPage('menu')">Browse Menu</button>
-                        <a href="tel:724-266-9559" class="btn-dark-outline">Call 724-266-9559</a>
+                        <button class="btn-white" onclick="showPage('menu')">View Full Menu</button>
+                        <a href="tel:724-266-9559" class="btn-red-outline">Call Now</a>
                     </div>
                 </div>
             </section>
-
-            <!-- Footer -->
-            <footer>
-                <div class="container">
-                    <div class="footer-grid">
-                        <div class="footer-col">
-                            <h4>Police Station Pizza</h4>
-                            <p>The legendary square-cut Ohio Valley style pizza serving Ambridge since generations.</p>
-                        </div>
-                        <div class="footer-col">
-                            <h4>Quick Links</h4>
-                            <a href="#" onclick="showPage('home')">Home</a>
-                            <a href="#" onclick="showPage('menu')">Menu</a>
-                        </div>
-                        <div class="footer-col">
-                            <h4>Contact</h4>
-                            <a href="tel:724-266-9559">724-266-9559</a>
-                            <p>1007 Merchant St</p>
-                        </div>
-                        <div class="footer-col">
-                            <h4>Hours</h4>
-                            <p>Mon-Sat: 12 PM - 9 PM<br>Sunday: Closed</p>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p>&copy; 2026 Police Station Pizza. All rights reserved.</p>
-                    </div>
-                </div>
-            </footer>
         </div>
 
         <!-- Menu Page -->
         <div id="menu-page" class="hidden">
-            <div style="display: flex; height: calc(100vh - 72px);">
-                <!-- Sidebar -->
+            <div class="menu-container">
+                <!-- Sidebar with Categories -->
                 <div class="menu-sidebar">
-                    <div class="menu-categories" id="categories-list"></div>
+                    <div class="menu-categories">
+                        <button class="category-btn active" onclick="filterMenu('pizza', this)">🍕 Pizza</button>
+                        <button class="category-btn" onclick="filterMenu('toppings', this)">🧅 Toppings</button>
+                        <button class="category-btn" onclick="filterMenu('rolls', this)">🔴 Pepperoni Rolls</button>
+                        <button class="category-btn" onclick="filterMenu('sides', this)">🍟 Sides</button>
+                        <button class="category-btn" onclick="filterMenu('drinks', this)">🥤 Drinks</button>
+                    </div>
                 </div>
 
-                <!-- Menu Content -->
+                <!-- Main Menu Content -->
                 <div class="menu-content">
                     <div class="menu-header">
-                        <h2 id="category-title">Pizza</h2>
+                        <h2 id="categoryTitle">🍕 Pizza</h2>
                     </div>
-                    <div class="menu-items" id="menu-items"></div>
+                    <div class="menu-items" id="menuItems"></div>
                 </div>
 
                 <!-- Cart Sidebar -->
                 <div class="cart-sidebar">
                     <div class="cart-header">
-                        <h3>Your Order</h3>
-                        <button class="cart-close" onclick="toggleCart()">✕</button>
+                        <h3>🛒 Your Cart</h3>
                     </div>
-                    <div class="cart-items" id="cart-items">
-                        <div class="cart-empty">No items yet</div>
+                    <div class="cart-items" id="cartItems">
+                        <div class="cart-empty">Your cart is empty</div>
                     </div>
-                    <div class="cart-footer" id="cart-footer" style="display: none;">
+                    <div class="cart-footer" id="cartFooter" style="display: none;">
                         <div class="cart-total">
-                            <span>Subtotal</span>
-                            <span id="cart-total">$0.00</span>
+                            <span>Total:</span>
+                            <span id="cartTotal">$0.00</span>
                         </div>
                         <a href="tel:724-266-9559" class="cart-call-btn">Call to Order</a>
                     </div>
@@ -934,185 +1158,133 @@ psp 002
     </div>
 
     <script>
-        // Menu Data
         const menuData = {
-            'Pizza': [
-                { id: 'pizza-12', name: '12 Cuts (Baked)', price: 15.50 },
-                { id: 'pizza-24', name: '24 Cuts (Baked)', price: 30.00 },
-                { id: 'pizza-12-unbaked', name: '12 Cuts (Unbaked)', price: 14.50 },
-                { id: 'pizza-24-unbaked', name: '24 Cuts (Unbaked)', price: 28.00 },
-                { id: 'pizza-slice', name: 'By the Slice', price: 1.50 }
+            pizza: [
+                { name: "Cheese (12 cuts)", price: 15.50 },
+                { name: "Cheese (24 cuts)", price: 30.00 },
+                { name: "Pepperoni (12 cuts)", price: 18.99 },
+                { name: "Pepperoni (24 cuts)", price: 37.99 },
+                { name: "Sausage (12 cuts)", price: 18.99 },
+                { name: "Deluxe (12 cuts)", price: 21.99 },
+                { name: "Deluxe (24 cuts)", price: 43.99 }
             ],
-            'Cheese': [
-                { id: 'cheese-extra', name: 'Extra Cheese', price: 2.00 }
+            toppings: [
+                { name: "Extra Cheese", price: 1.50 },
+                { name: "Pepperoni", price: 1.50 },
+                { name: "Sausage", price: 1.50 },
+                { name: "Bacon", price: 1.75 },
+                { name: "Mushroom", price: 1.25 },
+                { name: "Onion", price: 0.75 },
+                { name: "Green Pepper", price: 1.00 },
+                { name: "Banana Pepper", price: 1.00 }
             ],
-            'Pepperoni': [
-                { id: 'topping-pepperoni', name: 'Pepperoni', price: 1.50 }
+            rolls: [
+                { name: "Pepperoni Roll (Single)", price: 4.50 },
+                { name: "Pepperoni Rolls (2 Pack)", price: 8.99 },
+                { name: "Pepperoni Rolls (6 Pack)", price: 24.99 }
             ],
-            'Sausage': [
-                { id: 'topping-sausage', name: 'Sausage', price: 1.50 }
+            sides: [
+                { name: "French Fries", price: 3.99 },
+                { name: "Garlic Bread", price: 4.99 },
+                { name: "Mozzarella Sticks", price: 5.99 },
+                { name: "Wings (10 pc)", price: 7.99 }
             ],
-            'Bacon': [
-                { id: 'topping-bacon', name: 'Bacon', price: 1.75 }
-            ],
-            'Ham': [
-                { id: 'topping-ham', name: 'Ham', price: 1.50 }
-            ],
-            'Mushroom': [
-                { id: 'topping-mushroom', name: 'Mushroom', price: 1.25 }
-            ],
-            'Onion': [
-                { id: 'topping-onion', name: 'Onion', price: 1.00 }
-            ],
-            'Green Pepper': [
-                { id: 'topping-green-pepper', name: 'Green Pepper', price: 1.25 }
-            ],
-            'Banana Pepper': [
-                { id: 'topping-banana-pepper', name: 'Banana Pepper', price: 1.25 }
-            ],
-            'Sweet Pepper': [
-                { id: 'topping-sweet-pepper', name: 'Sweet Pepper', price: 1.25 }
-            ],
-            'Extra Cheese': [
-                { id: 'topping-extra-cheese', name: 'Extra Cheese', price: 1.50 }
+            drinks: [
+                { name: "2-Liter Soda", price: 2.99 },
+                { name: "Bottled Water", price: 1.50 },
+                { name: "Iced Tea", price: 2.50 }
             ]
         };
 
+        const categoryTitles = {
+            pizza: "🍕 Pizza",
+            toppings: "🧅 Toppings",
+            rolls: "🔴 Pepperoni Rolls",
+            sides: "🍟 Sides",
+            drinks: "🥤 Drinks"
+        };
+
         let cart = [];
-        let currentCategory = 'Pizza';
+        let currentCategory = 'pizza';
 
         function showPage(page) {
-            const homePage = document.getElementById('home-page');
-            const menuPage = document.getElementById('menu-page');
-
-            if (page === 'home') {
-                homePage.classList.remove('hidden');
-                menuPage.classList.add('hidden');
-            } else if (page === 'menu') {
-                homePage.classList.add('hidden');
-                menuPage.classList.remove('hidden');
-                initMenu();
-            }
+            document.getElementById('home-page').classList.toggle('hidden', page !== 'home');
+            document.getElementById('menu-page').classList.toggle('hidden', page !== 'menu');
         }
 
-        function initMenu() {
-            renderCategories();
-            renderMenuItems('Pizza');
-        }
-
-        function renderCategories() {
-            const container = document.getElementById('categories-list');
-            container.innerHTML = '';
-
-            Object.keys(menuData).forEach(category => {
-                const btn = document.createElement('button');
-                btn.className = `category-btn ${category === currentCategory ? 'active' : ''}`;
-                btn.textContent = category;
-                btn.onclick = () => selectCategory(category);
-                container.appendChild(btn);
-            });
-        }
-
-        function selectCategory(category) {
+        function filterMenu(category, btn) {
             currentCategory = category;
-            renderCategories();
-            renderMenuItems(category);
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('categoryTitle').textContent = categoryTitles[category];
+            renderMenu();
         }
 
-        function renderMenuItems(category) {
-            const container = document.getElementById('menu-items');
-            const title = document.getElementById('category-title');
-            title.textContent = category;
-
-            const items = menuData[category] || [];
-            container.innerHTML = '';
-
-            items.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'menu-item';
-                div.innerHTML = `
-                    <span class="menu-item-name">${item.name}</span>
-                    <span class="menu-item-price">$${item.price.toFixed(2)}</span>
-                    <button class="menu-add-btn" onclick="addToCart('${item.id}', '${item.name}', ${item.price})">+</button>
-                `;
-                container.appendChild(div);
-            });
+        function renderMenu() {
+            const items = menuData[currentCategory];
+            const html = items.map((item, idx) => `
+                <div class="menu-item">
+                    <div class="menu-item-name">${item.name}</div>
+                    <div class="menu-item-price">$${item.price.toFixed(2)}</div>
+                    <button class="menu-add-btn" onclick="addToCart('${currentCategory}', ${idx})">+</button>
+                </div>
+            `).join('');
+            document.getElementById('menuItems').innerHTML = html;
         }
 
-        function addToCart(id, name, price) {
-            const existing = cart.find(item => item.id === id);
-
-            if (existing) {
-                existing.quantity++;
+        function addToCart(category, idx) {
+            const item = menuData[category][idx];
+            const existingItem = cart.find(c => c.name === item.name);
+            
+            if (existingItem) {
+                existingItem.qty++;
             } else {
-                cart.push({ id, name, price, quantity: 1 });
+                cart.push({ ...item, qty: 1 });
             }
-
-            renderCart();
+            
+            updateCart();
         }
 
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            renderCart();
-        }
-
-        function updateQuantity(id, quantity) {
-            if (quantity <= 0) {
-                removeFromCart(id);
-            } else {
-                const item = cart.find(item => item.id === id);
-                if (item) item.quantity = quantity;
-                renderCart();
-            }
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cart-items');
-            const footer = document.getElementById('cart-footer');
-            const total = document.getElementById('cart-total');
-
+        function updateCart() {
+            const cartItemsEl = document.getElementById('cartItems');
+            const cartFooterEl = document.getElementById('cartFooter');
+            
             if (cart.length === 0) {
-                container.innerHTML = '<div class="cart-empty">No items yet</div>';
-                footer.style.display = 'none';
+                cartItemsEl.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+                cartFooterEl.style.display = 'none';
                 return;
             }
 
-            footer.style.display = 'block';
-            let html = '';
-            let totalPrice = 0;
-
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                totalPrice += itemTotal;
-
-                html += `
-                    <div class="cart-item">
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">$${itemTotal.toFixed(2)}</div>
-                        </div>
-                        <div class="cart-item-controls">
-                            <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">−</button>
-                            <span class="cart-item-qty">${item.quantity}</span>
-                            <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
-                        </div>
-                        <button onclick="removeFromCart('${item.id}')" style="background: none; border: none; color: #9ca3af; cursor: pointer; font-size: 14px;">✕</button>
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            cartItemsEl.innerHTML = cart.map((item, idx) => `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
                     </div>
-                `;
-            });
-
-            container.innerHTML = html;
-            total.textContent = '$' + totalPrice.toFixed(2);
+                    <div class="cart-item-controls">
+                        <button onclick="updateQty(${idx}, -1)">−</button>
+                        <div class="cart-item-qty">${item.qty}</div>
+                        <button onclick="updateQty(${idx}, 1)">+</button>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+            cartFooterEl.style.display = 'block';
         }
 
-        function toggleCart() {
-            // Cart is always visible on desktop, this is for mobile
+        function updateQty(idx, delta) {
+            cart[idx].qty += delta;
+            if (cart[idx].qty <= 0) {
+                cart.splice(idx, 1);
+            }
+            updateCart();
         }
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            showPage('home');
-        });
+        renderMenu();
     </script>
 </body>
 </html>
